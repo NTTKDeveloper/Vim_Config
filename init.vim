@@ -11,6 +11,8 @@ set foldmethod=indent
 set foldlevelstart=99
 set number 
 set ignorecase
+"neovide_transparency 
+let g:neovide_transparency=2
 
 let mapleader = " "
 " Disable backup
@@ -75,7 +77,6 @@ call plug#begin(stdpath('config'). '/plugged')
 
 " Notify
 	Plug 'rcarriga/nvim-notify'
-
 
 
 call plug#end()
@@ -342,7 +343,6 @@ nmap <leader>tb :ToggleTerm direction=horizontal<CR>
 "keymap('n', '<leader>tf', ':ToggleTerm direction=float<CR>', opts)
 nmap <leader>tf :ToggleTerm direction=float<CR>
 
-
 "Fullscreen 
 function Neovide_fullscreen()
 	if g:neovide_fullscreen==v:true
@@ -354,5 +354,6 @@ endfunction
 nmap <F11> :call Neovide_fullscreen()<cr>
 
 """"""Vietnamese
-set keymap=vietnamese-telex
+"1 Way 
+"set keymap=vietnamese-telex "Keymap folder 
 
