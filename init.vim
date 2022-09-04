@@ -77,7 +77,8 @@ call plug#begin(stdpath('config'). '/plugged')
 
 " Notify
 	Plug 'rcarriga/nvim-notify'
-
+" Auto save 
+	Plug 'pocco81/auto_save.nvim'
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -357,3 +358,7 @@ nmap <F11> :call Neovide_fullscreen()<cr>
 "1 Way 
 "set keymap=vietnamese-telex "Keymap folder 
 
+"Vim-notify
+lua <<END
+require("notify")("My notify")
+END
