@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "==> General setting
-"
+" 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set mouse=a
 set tabstop=4
@@ -28,6 +28,8 @@ if has('win32')
 else
 	set clipboard=unnamedplus
 endif
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==> Plugin List
@@ -62,6 +64,7 @@ call plug#begin(stdpath('config'). '/plugged')
 	Plug 'preservim/nerdcommenter' 					" Comment code 
 	Plug 'liuchengxu/vista.vim' 					" Function tag bar 
 	Plug 'alvan/vim-closetag' 						" Auto close HTML/XML tag 
+	Plug 'OmniSharp/omnisharp-vim'					"C#
 
 " Code syntax highlight
 	Plug 'yuezk/vim-js' 							" Javascript
@@ -77,8 +80,6 @@ call plug#begin(stdpath('config'). '/plugged')
 
 " Notify
 	Plug 'rcarriga/nvim-notify'
-" Auto save 
-	Plug 'pocco81/auto_save.nvim'
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -360,5 +361,9 @@ nmap <F11> :call Neovide_fullscreen()<cr>
 
 "Vim-notify
 lua <<END
-require("notify")("My notify")
 END
+
+"Auto Save
+autocmd InsertLeave * if &readonly == 0 && filereadable(bufname('%'))
+                                \ |	silent update| endif
+
